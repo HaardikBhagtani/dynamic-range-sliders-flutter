@@ -6,8 +6,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -71,20 +69,14 @@ class _DynamicRangeSliderDemoState extends State<DynamicRangeSliderDemo> {
                 });
               },
               onChangeEnd: (RangeValues values) {
-                // When end value reaches max, then increase max value by 50%
                 if (values.end == max) {
                   setState(() {
                     max = max + 1000;
                     divisions = (max - min) ~/ difference;
-                    //difference = difference + 50;
                   });
-                }
-                // When end value is more than 100 and is less than 50% of the max,
-                // then decrease max value by 50%
-                else if (max > 1000 && values.end < max - 1000) {
+                } else if (max > 1000 && values.end < max - 1000) {
                   setState(() {
                     max = max - 1000;
-                    //difference = difference - 50;
                     divisions = (max - min) ~/ difference;
                   });
                 }
